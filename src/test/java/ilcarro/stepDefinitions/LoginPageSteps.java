@@ -1,9 +1,14 @@
 package ilcarro.stepDefinitions;
 
 import ilcarro.pages.LoginPage;
+import ilcarro.utils.PropertiesLoader;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+
+import java.util.List;
+import java.util.Map;
+
 public class LoginPageSteps {
     @And("Пользователь вводит валидные данные")
     public void userEnterValidCredentials() {
@@ -38,5 +43,13 @@ public class LoginPageSteps {
     @And("Пользователь вводит валидные данные email и password")
     public void userEnterValidCredentialsTable(DataTable table) {
         new LoginPage().enterCredentials(table);
+    }
+
+
+    @And("Пользователь вводит валидные данные email и password используя PropertiesLoader")
+    public void enterCredentialsFromProperties() {
+        String email = PropertiesLoader.loadProperty("valid.email");
+        String password = PropertiesLoader.loadProperty("valid.password");
+        new LoginPage().enterCredentials(email, password);
     }
 }

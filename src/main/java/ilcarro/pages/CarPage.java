@@ -25,7 +25,7 @@ public class CarPage {
         String photo = dataTable.get(0).get("photo");
         enterCarDataToForm(location, manufacture, model, year, fuel, seats, classCar, price, about, photo);
     }
-    private void enterCarDataToForm(
+    public void enterCarDataToForm(
             String location,
             String manufacture,
             String model,

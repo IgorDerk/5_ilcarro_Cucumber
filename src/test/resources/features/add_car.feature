@@ -10,10 +10,8 @@ Feature: Добавление автомобиля
 
   @AddCar
   Scenario: Успешное добавление автомобиля
-    And Пользователь нажимает кнопку  Let the car work
+    And Пользователь нажимает кнопку Let the car work
     When Пользователь вводит данные автомобиля
-      | location | manufacture | model | year | fuel   | seats | classCar | price | about                        | photo                                                    |
-      | Haifa    | Nissan      | Sanny | 1991 | Petrol | 5     | Sedan    | 700   | Nissan Sanny is the best car | C:\Users\derki\OneDrive\Pictures\Image20250221114742.png |
     And Пользователь нажимает кнопку Submit
     Then Пользователь проверяет сообщение "Nissan Sanny added successful"
     And Пользователь закрывает браузер

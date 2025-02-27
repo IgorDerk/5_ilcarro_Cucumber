@@ -1,5 +1,6 @@
 package ilcarro.pages;
 
+import ilcarro.utils.PropertiesLoader;
 import io.cucumber.datatable.DataTable;
 
 import java.util.List;
@@ -13,7 +14,6 @@ import static com.codeborne.selenide.Selenide.$x;
 public class LoginPage {
 
 
-
     public void clickOnYallaButton() {
         $(byXpath("//button[.='Y’alla!']")).click();
     }
@@ -23,15 +23,22 @@ public class LoginPage {
         $x("//button[.='Ok']").click();
     }
 
-    public void enterCredentials(String email, String password) {
-        $("#email").setValue(email);
-        $("#password").setValue(password);
-    }
 
     public void enterCredentials(DataTable table) {
         List<Map<String, String>> dataTable = table.asMaps();
         String email = dataTable.get(0).get("email");
         String password = dataTable.get(0).get("password");
+        enterCredentials(email, password);
+    }
+
+    public void enterCredentials(String email, String password) {
+        $("#email").setValue(email);
+        $("#password").setValue(password);
+    }
+
+    public void enterCredentialsFromProperties() {
+        String email = PropertiesLoader.loadProperty("valid.email");
+        String password = PropertiesLoader.loadProperty("valid.password");
         enterCredentials(email, password);
     }
 }
