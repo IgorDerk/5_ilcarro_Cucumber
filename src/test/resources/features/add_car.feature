@@ -1,4 +1,4 @@
-Feature: Добавление
+Feature: Добавление автомобиля
 
   Background: Открываем браузер и переходим на домашнюю страницу
     Given Пользователь запускает браузер
@@ -6,30 +6,14 @@ Feature: Добавление
     And Пользователь нажимает на ссылку Login
     And Пользователь вводит валидные данные
     And Пользователь нажимает на кнопку Yalla
+    Then Пользователь проверяет отображение сообщения об успешном логине
 
-
-  @add_car
-  Scenario Outline:: Добавление автомобиля
-    And Пользователь нажимает на кнопку Ok
-    Given Пользователь переходит на страницу Let the car work
-    When Пользователь заполняет валидные данные автомобиля
-      | Поле          | Значение        |
-      | Location      | <location>      |
-      | Manufacture   | <manufacture>   |
-      | Model         | <model>         |
-      | Year          | <year>          |
-      | Fuel          | <fuel>          |
-      | Seats         | <seats>         |
-      | Car Class     | <car_class>     |
-      | Price         | <price>         |
-      | Serial Number | <serial_number> |
-      | About         | <about>         |
-    Examples:
-      | location      | manufacture | model   | year | fuel   | seats | car_class | price | serial_number | about     |
-      | Haifa, Israel | Toyota      | Corolla | 2020 | Petrol | 5     | Sedan     | 50    | 123456789     | Test car  |
-
-#    And Пользователь загружает изображение автомобиля
-#    And Пользователь нажимает на кнопку Submit
-#    Then Пользователь видит сообщение "Car added"
-#    And Пользователь закрывает браузер
-
+  @AddCar
+  Scenario: Успешное добавление автомобиля
+    And Пользователь нажимает кнопку  Let the car work
+    When Пользователь вводит данные автомобиля
+      | location | manufacture | model | year | fuel   | seats | classCar | price | about                        | photo                                                    |
+      | Haifa    | Nissan      | Sanny | 1991 | Petrol | 5     | Sedan    | 700   | Nissan Sanny is the best car | C:\Users\derki\OneDrive\Pictures\Image20250221114742.png |
+    And Пользователь нажимает кнопку Submit
+    Then Пользователь проверяет сообщение "Nissan Sanny added successful"
+    And Пользователь закрывает браузер

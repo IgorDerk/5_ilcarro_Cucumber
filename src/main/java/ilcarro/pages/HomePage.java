@@ -1,37 +1,29 @@
 package ilcarro.pages;
 
-import ilcarro.core.BasePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import ilcarro.utils.PropertiesLoader;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
-public class HomePage extends BasePage {
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
+public class HomePage {
+
+    public static String baseURL = PropertiesLoader.loadProperty("url");
 
     public void openHomePage() {
-//        driver.get("https://ilcarro.web.app/");
-        open("https://ilcarro.web.app/");
+        open(baseURL);
     }
 
-//    @FindBy(xpath = "//a[.=' Let the car work ']")
-//    WebElement homePageTitle;
-public boolean isHomePageTitlePresent() {
-    // return isElementPresent(homePageTitle);
-    return $("h1").shouldHave(text("Find your car now!")).isDisplayed();
-}
-
-//    @FindBy(xpath = "//a[.=' Log in ']")
-//    WebElement loginLink;
+    public boolean isHomePageTitlePresent() {
+        return $("h1").shouldHave(text("Find your car now!")).isDisplayed();
+    }
 
     public void clickOnLoginLink() {
-//        click(loginLink);
-        $(byXpath("//a[.='Log in']")).click();
+        $(byXpath("//a[.=' Log in ']")).click();
+    }
+
+    public void clickOnLetTheCarWorkLink() {
+        //$(byXpath("//a[.=' Let the car work ']")).click();
+        $x("//a[.=' Let the car work ']").click();
     }
 }
