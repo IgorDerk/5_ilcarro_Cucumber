@@ -2,11 +2,18 @@ package ilcarro.stepDefinitions;
 
 import ilcarro.pages.CarPage;
 import ilcarro.utils.PropertiesLoader;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CarPageSteps {
+
+//!    ДЗ 30/2
+//    @When("Пользователь вводит данные автомобиля")
+//    public void userEnterCarData(DataTable table){
+//        new CarPage().enterCarData(table);
+//    }
 
     @When("Пользователь вводит данные автомобиля")
     public void userEnterCarData() {

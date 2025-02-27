@@ -11,20 +11,21 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CarPage {
-    public void enterCarData(DataTable table) {
-        List<Map<String, String>> dataTable = table.asMaps();
-        String location = dataTable.get(0).get("location");
-        String manufacture = dataTable.get(0).get("manufacture");
-        String model = dataTable.get(0).get("model");
-        String year = dataTable.get(0).get("year");
-        String fuel = dataTable.get(0).get("fuel");
-        String seats = dataTable.get(0).get("seats");
-        String classCar = dataTable.get(0).get("classCar");
-        String price = dataTable.get(0).get("price");
-        String about = dataTable.get(0).get("about");
-        String photo = dataTable.get(0).get("photo");
-        enterCarDataToForm(location, manufacture, model, year, fuel, seats, classCar, price, about, photo);
-    }
+//!    ДЗ 30/2
+//    public void enterCarData(DataTable table) {
+//        List<Map<String, String>> dataTable = table.asMaps();
+//        String location = dataTable.get(0).get("location");
+//        String manufacture = dataTable.get(0).get("manufacture");
+//        String model = dataTable.get(0).get("model");
+//        String year = dataTable.get(0).get("year");
+//        String fuel = dataTable.get(0).get("fuel");
+//        String seats = dataTable.get(0).get("seats");
+//        String classCar = dataTable.get(0).get("classCar");
+//        String price = dataTable.get(0).get("price");
+//        String about = dataTable.get(0).get("about");
+//        String photo = dataTable.get(0).get("photo");
+//        enterCarDataToForm(location, manufacture, model, year, fuel, seats, classCar, price, about, photo);
+//    }
     public void enterCarDataToForm(
             String location,
             String manufacture,

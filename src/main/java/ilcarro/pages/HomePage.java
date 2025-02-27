@@ -23,7 +23,6 @@ public class HomePage {
     }
 
     public void clickOnLetTheCarWorkLink() {
-        //$(byXpath("//a[.=' Let the car work ']")).click();
         $x("//a[.=' Let the car work ']").click();
     }
 }
